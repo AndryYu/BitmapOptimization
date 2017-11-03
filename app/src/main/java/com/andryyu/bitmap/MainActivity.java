@@ -1,15 +1,16 @@
 package com.andryyu.bitmap;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+
+import com.andryyu.bitmap.cache.PhotoActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnQuality, btnSize, btnLibjpeg;
-    private ImageView ivQuality, ivSize, ivLibjpeg;
+    private Button btnCache, btnCompress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,28 +21,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initViews(){
-        ivQuality = (ImageView) findViewById(R.id.iv_quality);
-        ivSize = (ImageView) findViewById(R.id.iv_size);
-        ivLibjpeg = (ImageView) findViewById(R.id.iv_libjpeg);
-
-        btnQuality = (Button) findViewById(R.id.btn_quality);
-        btnSize = (Button) findViewById(R.id.btn_size);
-        btnLibjpeg = (Button) findViewById(R.id.btn_libjpeg);
-        btnQuality.setOnClickListener(this);
-        btnSize.setOnClickListener(this);
-        btnLibjpeg.setOnClickListener(this);
+        btnCache = (Button) findViewById(R.id.btn_cache);
+        btnCompress = (Button) findViewById(R.id.btn_compress);
+        btnCache.setOnClickListener(this);
+        btnCompress.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
       switch (view.getId()){
-          case R.id.btn_quality:
-
+          case R.id.btn_cache:
+                startActivity(new Intent(MainActivity.this, PhotoActivity.class));
               break;
-          case R.id.btn_size:
-
-              break;
-          case R.id.btn_libjpeg:
+          case R.id.btn_compress:
 
               break;
       }
